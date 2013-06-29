@@ -1,0 +1,23 @@
+/**
+ * @target: os xworkspace
+ * @author: Krutko Vitaliy
+ * @aka: asmforce
+ * @e-mail: asmforce@ukr.net
+ * @copyright (C)
+**/
+
+#ifndef XWORKSPACE_TTY_H
+#define XWORKSPACE_TTY_H
+
+#include "config.h"
+
+extern void inizTty();
+
+extern void setCaretPos( u16 x, u16 y );
+extern void setScrollOffset( u16 offset );
+extern void setLightPenPos( u16 x, u16 y );
+
+extern void printc( tchar c );
+extern void printcs( const tchar *cs );
+
+#endif

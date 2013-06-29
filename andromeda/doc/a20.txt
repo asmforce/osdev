@@ -1,0 +1,10 @@
+// old,compatible,through keyboard controller
+    mov    al, 0D1h
+    out    64h, al
+    mov    al, 0DFh
+    out    60h, al
+
+// `new`, `fast`
+    in    al, 92h
+    and    al, not 2
+    out    92h, al

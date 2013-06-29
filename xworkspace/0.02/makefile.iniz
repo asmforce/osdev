@@ -1,0 +1,35 @@
+#
+# @author: Vitaliy Krutko
+# @e-mail: asmforce@ukr.net asmxforce@gmail.com
+# @project: os xworkspace
+# @target: boot and initialize stage
+#
+
+CC		=	gcc -c
+LINK		=	ld
+OBJCOPY		=	objcopy
+REMOVE		=	erase /F
+INCLUDE		=	-Iinclude
+
+
+all: bin\boot.bin bin\iniz16.bin src\boot\iniz32.o
+
+bin\boot.bin: src\boot\boot.o
+	$(LINK) -Ttext 0x0 -o $@ $^
+	$(OBJCOPY) $@ -O binary
+
+src\boot\boot.o: src\boot\boot.s
+	$(CC) $(INCLUDE) -o $@ $^
+
+bin\iniz16.bin: src\boot\iniz16.o
+	$(LINK) -Ttext 0x1600 -o $@ $^
+	$(OBJCOPY) $@ -O binary
+
+src\boot\iniz16.o: src\boot\iniz16.s
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\boot\iniz32.o: src\boot\iniz32.s
+	$(CC) $(INCLUDE) -o $@ $^
+
+clean:
+	$(REMOVE) bin\boot.bin bin\iniz16.bin src\boot\boot.o src\boot\iniz16.o src\boot\iniz32.o

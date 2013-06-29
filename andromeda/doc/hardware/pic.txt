@@ -1,0 +1,129 @@
+// Programmable Interrupt Controller
+
+
+
+
+
+// ports 0x4D0 (primary), 0x4D1 (slave) ELCR
+// (Edge/Level Control Register)
+//   0 - по уровню сигнала
+//   1 - по перепаду
+// По уровню должны срабатывать запросы:
+//   IRQ 0, 1 , 2, 8, 13
+// Каждый бит соответствует одному IRQ
+
+
+
+
+// primary PIC initialization
+
+// ICW1: (to 0x20 port for master)
+// 0x11 (0b00010001)
+//   [000] (need for mcs mode)
+//   [1] (icw1 indicator)
+//   [0] (edge/level for whole pic, must be zero)
+//   [0] (need for mcs mode)
+//   [0] (cascading enabled)
+//   [1] (icw4 is needed)
+
+// ICW2: (to 0x21 port for master)
+// 0x20 (0b00100000)
+//   [00100000] (IDT first routine index << 3)
+// 3 least-significant bits must be zero
+
+// ICW3: (to 0x21 port for master)
+// 0x04 (0b00000100)
+//   [00000100] (slave pics connections)
+
+// ICW4: (to 0x21 port for master)
+// 0x11 (0b00000001)
+//   [000] (reserved)
+//   [0] (special fully-nested mode disabled)
+//   [0] (non-buffered mode)
+//   [0] (master/slave only if buffered mode)
+//   [0] (manual eoi)
+//   [1] (i8080/i8086 mode)
+
+
+
+
+
+// slave PIC initialization
+
+// ICW1: (to 0x20 port for slave)
+// 0x11 (0b00010001)
+//   [000] (need for mcs mode)
+//   [1] (icw1 indicator)
+//   [0] (edge/level for whole pic, must be zero)
+//   [0] (need for mcs mode)
+//   [0] (cascading enabled)
+//   [1] (icw4 is needed)
+
+// ICW2: (to 0x21 port for slave)
+// 0x28 (0b00101000)
+//   [00101000] (IDT first routine index << 3)
+// 3 least-significant bits must be zero
+
+// ICW3: (to 0x21 port for slave)
+// 0x02 (0b00000010)
+//   [00000] (must be zero)
+//   [010] (slave id)
+
+// ICW4: (to 0x21 port for slave)
+// 0x01 (0b00000001)
+//   [000] (reserved)
+//   [0] (special fully-nested mode disabled)
+//   [0] (non-buffered mode)
+//   [0] (master/slave only if buffered mode)
+//   [0] (manual eoi)
+//   [1] (i8080/i8086 mode)
+
+
+
+
+
+
+// OCW1: (to 0x21/0xA1 for master/slave)
+// Позволяет выборочно маскировать прерывания
+// Каждый бит отвечает за одну линию IRQ
+//   бит 0: прерывание обрабатывается
+//   бит 1: прерывание замаскировано
+// Похоже, что бит, отвечающий за IRQ2 в
+// ведущем контроллере позволяет замаскировать
+// все линии ведомого: IRQ8-IRQ15
+
+
+// OCW2: (to 0x20/0xA0 for master/slave)
+// EOI (Окончание прерывания)
+// 0bMMM00LLL
+// [MMM] (код команды)
+//   000 — отмена режима вращения приоритетов и автоматического EOI;
+//   001 — неспецифический EOI;
+//   010 — нет операции;
+//   011 — специфический EOI;
+//   100 — включение режима вращения приоритетов и автоматического EOI;
+//   101 — вращение приоритетов и неспецифический EOI;
+//   110 — установка дна приоритетов;
+//   111 — вращение приоритетов и специфический EOI;
+// [00] (признак OCW2)
+// [LLL] (в командах 011, 110 и 111 задают номер IRQ данного контроллера)
+
+
+// OCW3: (to 0x20/0xA0 for master/slave)
+// Mode
+// 0b0MM01ARR
+// [0] (должен быть равен нулю)
+// [MM] (управление режимом специального маскирования)
+//   00 — не изменять режим;
+//   01 — отменить режим специального маскирования;
+//   10 — не изменять режим;
+//   11 — активизировать режим специального маскирования;
+// [01] (признак OCW3)
+// [A] (режим опроса)
+//   // чтобы активизировать, необходимо записать сюда единицу, а затем считать код вектора прерывания из порта 20h/A0h;
+//   // после чтения вектора режим опроса автоматически отменяется;
+// [RR] (выбор считываемого регистра)
+//   00 — не изменять;
+//   01 — не изменять;
+//   10 — считывать IRR;
+//   11 — считывать ISR;

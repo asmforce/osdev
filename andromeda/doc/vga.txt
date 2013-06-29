@@ -1,0 +1,42 @@
+/**
+ * video card mono/colour detection by Dark Fiber
+ * returns 0=mono, 1=colour
+**/
+int detect_video_type( void )
+{
+  int rc;
+  char c = *( (USHORT*)0x410&0x30 );
+  /* C can be 0x00 or 0x20 for colour, 0x30 for mono */
+  if( c == 0x30 )
+    rc = 0;  // mono
+  else
+    rc = 1;  // colour
+  return rc;
+};
+        
+ 
+
+ 
+/**
+ * How do I move the cursor when I print? 
+ * Without access to bios calls and functions, moving the cursor requires using video hardware control.
+ * Lucky for us it is a simple procedure. 
+ * Note, this quick example ASSUMES 80x25 screen mode.
+**/
+
+/**
+ * void update_cursor(int row, int col)
+ *   by Dark Fiber
+**/
+void update_cursor( int row, int col )
+{
+	USHORT position = ( row * 80 ) + col;
+
+	// cursor LOW port to vga INDEX register
+	outb( 0x3D4, 0x0F );
+	outb( 0x3D5, (UCHAR)(position&0xFF) );
+
+	// cursor HIGH port to vga INDEX register
+	outb( 0x3D4, 0x0E );
+	outb( 0x3D5, (UCHAR)((position>>8)&0xFF) );
+};

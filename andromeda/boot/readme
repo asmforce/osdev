@@ -1,0 +1,8 @@
+MBS - main boot sector (first 512 bytes)
+RMS - real-mode setup (16bit code)
+PMS - protected-mode setup (32bit code)
+MPT - main partition table
+
+TODO:
+> Make up MPT
+> HDD id at 0x1B8-0x1BE ?

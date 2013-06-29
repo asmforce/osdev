@@ -1,0 +1,26 @@
+/**
+ * @author: Krutko Vitaliy
+ * @aka: asmforce
+ * @e-mail: asmforce@ukr.net
+ * @copyright (C)
+**/
+
+// Basic configuration
+
+BOOT_SEGMENT = 0x07C0
+BOOT_ADDRESS = 0x7C00
+BOOT_SIGNATURE = 0xAA55
+
+GDT_ADDRESS = 0x0600
+IDT_ADDRESS = 0x0E00
+
+GDT_SIZE = 256 * 8
+IDT_SIZE = 256 * 8
+
+SYSTEM_ADDRESS = 0x1600
+SYSTEM_SEGMENT = SYSTEM_ADDRESS/0x10
+SYSTEM_SECTORS = 64
+INIT16_ADDRESS = SYSTEM_ADDRESS
+
+INIT32_ADDRESS = 0x1E00
+KERNEL_ADDRESS = INIT32_ADDRESS

@@ -1,0 +1,75 @@
+/**
+ * // offset - смещение страницы видеопамяти
+ *  {
+ *    u16 offset = 80*5; // абсолютная 5-я строка будет отображаться первой
+ *
+ *    wrio8( 12, 0x3D4 );
+ *    wrio8( offset >> 8, 0x3D5 );
+ *    wrio8( 13, 0x3D4 );
+ *    wrio8( offset & 0xFF, 0x3D5 );
+ *  }
+ *
+ * // offset - позиция текстового курсора
+ *  {
+ *    u16 offset = 200;
+ *
+ *    wrio8( 14, 0x3D4 );
+ *    wrio8( offset >> 8, 0x3D5 );
+ *    wrio8( 15, 0x3D4 );
+ *    wrio8( offset & 0xFF, 0x3D5 );
+ *  }
+ *
+ *  12:13 -> videopage offset
+ *  14:15 -> text cursor offset
+ *  16:17 -> light pen offset
+**/
+
+#define TEXT_SCREEN_WIDTH 80
+#define TEXT_SCREEN_HEIGHT 50
+
+
+#define VIDEO_INDEX_PORT 0x3D4
+#define VIDEO_DATA_PORT 0x3D5
+
+
+#define LIGHTPEN_OFFSET_HB 0x0A
+#define LIGHTPEN_OFFSET_LB 0x0B
+
+#define VIDEOPAGE_OFFSET_HB 0x0C
+#define VIDEOPAGE_OFFSET_LB 0x0D
+
+#define CARET_POS_HB 0x0E
+#define CARET_POS_LB 0x0F
+
+
+void setCaretPos( u16 x, u16 y )
+{
+  u16 offset = x * TEXT_SCREEN_WIDTH + y;
+
+  wrio8( CARET_POS_LB, VIDEO_INDEX_PORT );
+  wrio8( offset & 0xFF, VIDEO_DATA_PORT );
+  wrio8( CARET_POS_HB, VIDEO_INDEX_PORT );
+  wrio8( offset >> 8, VIDEO_DATA_PORT );
+};
+
+
+void setScrollOffset( u16 offset )
+{
+  offset *= TEXT_SCREEN_WIDTH;
+
+  wrio8( VIDEOPAGE_OFFSET_LB, VIDEO_INDEX_PORT );
+  wrio8( offset & 0xFF, VIDEO_DATA_PORT );
+  wrio8( VIDEOPAGE_OFFSET_HB, VIDEO_INDEX_PORT );
+  wrio8( offset >> 8, VIDEO_DATA_PORT );
+};
+
+
+void setLightPenPos( u16 x, u16 y )
+{
+  u16 offset = x * TEXT_SCREEN_WIDTH + y;
+
+  wrio8( LIGHTPEN_OFFSET_LB, VIDEO_INDEX_PORT );
+  wrio8( offset & 0xFF, VIDEO_DATA_PORT );
+  wrio8( LIGHTPEN_OFFSET_HB, VIDEO_INDEX_PORT );
+  wrio8( offset >> 8, VIDEO_DATA_PORT );
+};

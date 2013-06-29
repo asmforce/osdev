@@ -1,0 +1,18 @@
+It should go something like:
+
+0x00000100 -> 0xFFE001FF - enable local APIC and set spurious int vector to 0xFF
+0xFFFFFFFF -> 0xFEE000E0 - set destination format register to flat model
+0x00000000 -> 0xFEE00080 - set the task priority register to accept all interrupts
+0x0000000B -> 0xFEE003E0 - set timer to divide by 1
+0x00020040 -> 0xFEE00320 - enable timer, set periodic mode, set int vector to 0x40
+0x00000064 -> 0xFEE00380 - set initial count to 100 (and make the timer start counting)
+
+If you're setting the timer counter to divide by one and using an initial count of 100, then it'd work out to a delay of between 4 uS (25 MHz bus) and 100 nS (1 GHz bus). This seems insanely fast to me...
+
+You don't need to read the old value and then change it - it's safe to assume all reserved bits are zero (or one for the destination format register).
+
+Also, for some Pentium CPUs (IIRC family 5, model 2, stepping 0x0B) there was a bug with the local APIC, where you need to do a dummy read before doing a write.
+
+Of course before you do anything with the local APIC you should find out if the base address is 0xFEE00000 or something else, and all of your local APIC code should be written so that it works if the local APIC isn't at 0xFEE00000.
+
+Apart from that, I'm out of ideas (except for obvious things, like CLI without STI, etc).

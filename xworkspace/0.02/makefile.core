@@ -1,0 +1,47 @@
+#
+# @author: Vitaliy Krutko
+# @e-mail: asmforce@ukr.net asmxforce@gmail.com
+# @project: os xworkspace
+# @target: os core
+#
+
+CC		=	gcc -c
+LINK		=	ld
+OBJCOPY		=	objcopy
+MAKE		=	make
+REMOVE		=	erase /F
+INCLUDE		=	-Iinclude
+TARGET		=	bin\core.bin
+
+all: bin\core.bin
+
+$(TARGET): src\boot\iniz32.o src\iniz.o src\xmain.o src\task.o src\igates.o src\string.o src\cmos.o src\vconsole.o
+	$(LINK) -Ttext 0x1E00 -o $@ $^
+	$(OBJCOPY) $@ -O binary
+
+src\iniz.o: src\iniz.c
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\xmain.o: src\xmain.c
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\task.o: src\task.c
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\igates.o: src\igates.s
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\string.o: src\string.c
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\cmos.o: src\cmos.c
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\vconsole.o: src\vconsole.c
+	$(CC) $(INCLUDE) -o $@ $^
+
+src\boot\iniz32.o:
+	$(MAKE) -f makefile.iniz all
+
+clean:
+	$(REMOVE) $(TARGET) src\boot\iniz32.o src\iniz.o src\xmain.o src\task.o src\igates.o src\string.o src\cmos.o src\vconsole.o

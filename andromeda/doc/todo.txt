@@ -1,0 +1,65 @@
+//---------------------------------------------------------------------------------------------------------
+// vbe3.pdf -> в конце  примеры кода (меня интересует инфа ax=4F01)
+
+// Отобразить физический адрес выше границы 1 Мб на линейный
+movw $0x0800, %ax
+int $0x31
+
+// Входные параметры:
+bx:cx -> физический адрес
+si:di -> размер области в байтах
+
+// Выходные параметры:
+bx:cx -> линейный адрес
+cf = 0 -> успех (использовать jc (cf=1) jnc(cf=0))
+
+
+
+// Отменить отображение
+movw $0x0801, %ax
+int $0x31
+
+// Входные параметры:
+bx:cx -> линейный адрес
+
+// Выходные параметры:
+cf = 0 -> успех (использовать jc (cf=1) jnc(cf=0))
+
+
+//---------------------------------------------------------------------------------------------------------
+Input Parameters:
+AH - 0x24, indicating Query Port 0x92 A20 Gate Capability Function.
+AL - subfunction, as follows:
+  0x01 - Enable A20 gate.
+  0x02 - Disable A20 gate.
+  0x03 - Determine if port 0x92 support is available.
+
+Output Parameters:
+CY - set if failure (no port 0x92 support), else clear if success.
+AH - if failure, 0x86.
+BX - if subfunction 0x03, returns the value 2, indicating support available.
+
+
+//---------------------------------------------------------------------------------------------------------
+// INT 0x15
+// The Advanced Power Management Set Power State BIOS function is called to place the system
+// in the requested state.  The system BIOS only responds to power device ID = 0x0001 (system
+// BIOS).
+Input Parameters:
+AH - 0x53, indicating an Advanced Power Management Function.
+AL - 0x07, indicating Set Power State Subfunction.
+BX - 0x0001, indicating system BIOS.
+CX - System State ID, as follows:
+  0x0000 - Ready (not supported for device ID 0x0001).
+  0x0001 - Standby.
+  0x0002 - Suspend.
+  0x0003 - Off (not supported for device ID 0x0001).
+
+Output Parameters:
+CY - set if failure, else clear if success.
+AH - error code, as follows:
+  0x01 - power management functionality disabled.
+  0x09 - unrecognized device ID.
+  0x0a - parameter valud in CX out of range.
+  0x60 - cannot enter requested state.
+  0x86 - APM not supported.

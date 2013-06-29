@@ -1,0 +1,116 @@
+Ћитература
+1. јбраш ћ. “аинства программировани€ графики.†Ч  .: ≈вро—»Ѕ, 1996.
+2. Ѕогумирский Ѕ.†—. –уководство пользовател€ ѕЁ¬ћ.†Ч —ѕб: јссоциаци€ OILCO, 1992.
+3. Ѕраун –.,  айл ƒж. —правочник по прерывани€м дл€ IBM PC.†Ч ћ.: ћир, 1994.
+4. √ригорьев ¬.†Ћ. јрхитектура и программирование арифметического сопроцессора.†Ч ћ.: Ёнергоатомиздат, 1991.
+5. √ригорьев ¬.†Ћ. ћикропроцессор i486. јрхитектура и программирование.†Ч ћ.: √–јЌјЋ, 1993.
+6. √ук ћ. јппаратные средства IBM PC. Ёнциклопеди€.†Ч —ѕб: ѕитер  ом, 1999.
+7. √ук ћ. »нтерфейсы ѕ : справочник.†Ч —ѕб: ѕитер, 1999.
+8. √уртовцев ј.†Ћ., √удыменко —.¬. ѕрограммы дл€ микропроцессоров.†Ч ћн.: ¬ысш. шк., 1989.
+9. √юнтер Ѕорн. ‘орматы данных.†Ч —ѕб: BHV, 1995.
+10. ƒанкан –. ѕрофессиональна€ работа в MS DOS.†Ч ћ.: ћир, 1993.
+11. ƒжордейн –. —правочник программиста персональных компьютеров типа IBM PC, XT и AT.†Ч ћ.: ‘инансы и статистика, 1992.
+12. «акон ћерфи.†Ч ћинск: ќќќ Ђѕопурриї, 1997.
+13. »спользование Turbo Assembler при разработке программ.†Ч  иев: Ђƒиалектикаї, 1994.
+14. Ћукач ё.†—., —ибир€ков ј.†≈. јрхитектура ввода-вывода персональных Ё¬ћ IBM PC.†Ч —вердловск: »нженерно-техническое бюро, 1990.
+15. ћалиновский Ѕ.†Ќ. »стори€ вычислительной техники в лицах.†Ч  иев: ‘ирма Ђ »“ї, 1995 г.
+16. ћикропроцессорный комплект  1810.†Ч ћ.: ¬ысша€ школа, 1990.
+17. Ќовиков ё.¬.,  арпенко ƒ.√., јппаратура локальных сетей: функции, выбор, разработка. Ч ћ., Ё ќћ, 1998.
+18. ќднокристальные микроЁ¬ћ.†Ч ћ.: ћ» јѕ, 1994.
+19. ќлифер ¬.√., ќлифер Ќ.ј.  омпьютерные сети. ѕринципы, технологии, протоколы. Ч —ѕб:, ѕитер, 2001.
+20. ќрлов ј. јнимаци€ в компьютерных играх.†Ч ћир ѕ  є1, 1993.
+21. ѕаппас  ., ћарри ”. ћикропроцессор 80386: —правочник.†Ч ћ.: –адио и св€зь, 1993.
+22. ѕерсональные Ё¬ћ на основе архитектуры Intel 80386.†Ч ќбнинск: Ђ»Ќ¬≈— ќї, 1993.
+23. ѕечатающие устройства дл€ персональных Ё¬ћ: —правочник.†Ч ћ.: –адио и св€зь, 1992.
+24. –азработка боевых программ в Ќ»»Ц5.†Ч PC WEEK/RE є 40, 1999 г.
+25. –оманов ¬.†ё. ѕопул€рные форматы файлов дл€ хранени€ графических изображений на IBM PC.†Ч ћ.: ”нитех, 1992.
+26. —инев ј.  ак создать оконный интерфейс.†Ч  омпьютерѕресс єє 1,2, 1991.
+27. “ехника программировани€ на Turbo C.†Ч ћ.: Ђ».¬. .†Ч —ќ‘“ї, 1991.
+28. “ом —ван. ‘орматы файлов Windows.†Ч ћ.: Ѕ»Ќќћ, 1994.
+29. ”илтон –. ¬идеосистемы персональных компьютеров IBM PC и PS/2. –уководство по программированию.†Ч ћ.: –адио и св€зь, 1994.
+30. ‘ролов ј.†¬., ‘ролов √.†¬. јппаратное обеспечение IBM PC.†Ч ћ.: Ђƒ»јЋќ√Цћ»‘»ї, 1992.
+31. ‘ролов ј.†¬., ‘ролов √.†¬. «ащищенный режим процессоров Intel 80286, 80386, 80486. ѕрактическое руководство по использованию защищенного режима.†Ч ћ.: Ђƒ»јЋќ√Цћ»‘»ї, 1992.
+32. ‘ролов ј.†¬., ‘ролов √.†¬. ќперационна€ система MS DOS.†Ч ћ.: Ђƒ»јЋќ√Цћ»‘»ї, 1991.
+33. ‘ролов ј.†¬., ‘ролов √.†¬. ѕрограммирование видеоадаптеров CGA, EGA и VGA.†Ч ћ.: Ђƒ»јЋќ√Цћ»‘»ї, 1992.
+34. ёров ¬.†». Assembler. †Ч —ѕб, ѕитер, 2000.
+35. AN519. Implementing a Simple Serial Mouse Controller.†Ч Microchip Technology Inc., 1997.
+36. AT/LANTIC Software DeveloperТs Guide. Ч National Semiconductor Corp., 1993.
+37. ATA Host Adapter Standards. Revision 0b. T13/1510D. Ч ANSI, 2001.
+38. Avenger Super High Performance Graphics Engine for 3D Game Acceleration.†Ч 3Dfx Interactive Inc., 1999.
+39. Craig Peacock. USB in a Nutshell. Making Sense of the USB Standard. Ч Beyondlogic, 2002.
+40. Dave Williams. ProgrammerТs Technical Reference for MSDOS and the IBM PC.†Ч 1989.
+41. DP8390D/NS32490D NIC Network Interface Controller. Ч National Semiconductor Corp., 1995.
+42. DP83901A SNIC Serial Network Interface Controller. Ч National Semiconductor Corp., 1995.
+43. DP83905 AT/LANTIC Local Area Network Twisted-Pair Interface Controller. Ч National Semiconductor Corp., 1995.
+44. Enhanced Parallel Port BIOS Specification. Ч FarPoint Communications, 1993.
+45. EPSON ESC/P Reference Manual. Ч Seiko Epson Corp., Nagano, Japan, 1997.
+46. EPSON FX series printer. UserТs Manual. Ч Seiko Epson Corp., Nagano, Japan, 1988.
+47. EPSON LQ 850/950/1050. UserТs Manual. Ч Seiko Epson Corp., Nagano, Japan, 1988.
+48. EPSON Programming Guide For 4 Color EPSON Stylus COLOR Ink Jet Printers: Stylus COLOR 440, Stylus COLOR 640, Stylus COLOR 740, Stylus COLOR 900,. Ч EPSON Imaging Technology Center, 1999.
+49. EPSON Programming Guide For 4 Color EPSON Stylus Ink Jet Printer: EPSON Stylus C20SX, EPSON Stylus C20UX, EPSON Stylus C40SX, EPSON Stylus C40UX. Ч EPSON Imaging Technology Center, 2001.
+50. EPSON Programming Guide For 4 Color EPSON Stylus Ink Jet Printer Stylus C60. Ч EPSON Imaging Technology Center, 2001.
+51. Extended Capabilities Port: Specification. Ч Microsoft Corp., 1993.
+52. FAT: General Overview of On-Disk Format.†Ч Microsoft Corporation, 1999.
+53. FDC37C665GT, FDC37C666GT High-Performance Multi-Mode Parallel Port Super I/O Floppy Disk Controllers. Ч Standard Microsystems Corp., 1994.
+54. HP DeskJet 600/800 Series Printers Software DeveloperТs PCL Guide. Ч Hewlett Packard, 1997.
+55. HT6513B M+ Plug & Play Mouse Controller.†Ч Holtek Semiconductor Inc., 2000.
+56. HT6523 PS/2 Mouse Controller.†Ч Holtek Semiconductor Inc., 1996.
+57. HT82K28A Win98 Keyboard Encoder.†Ч Holtek Semiconductor Inc., 1999.
+58. HT82M33A 3D Mouse Controller.†Ч Holtek Semiconductor Inc., 1999.
+59. HT82M398A WIN2000 3D PS/2 Mouse Controller.†Ч Holtek Semiconductor Inc., 2000.
+60. HT82M39A 3D PS/2 Mouse Controller.†Ч Holtek Semiconductor Inc., 1999.
+61. IEEE Standard Signaling Method for a Bidirectional Parallel Peripheral Interface for Personal Computers. Ч IEEE, 2000.
+62. Information Technology Ч AT Attachment-3 Interface (ATA-3), Revision 7b, X3T10/2008D. Ч ANSI, 1997.
+63. Information Technology Ч AT Attachment with Packet Interface - 6 (ATA/ATAPI-6), Revision 3b, T13/1410D. Ч ANSI, 2002.
+64. Information Technology Ч BIOS Enhanced Disk Drive Service (EDD), Revision 5, T13/1386D. Ч ANSI, 2000.
+65. Intel 810 Chipset Family ProgrammerТs Reference Manual.†Ч Intel Corp., 1999.
+66. Intel Architecture Software DeveloperТs Manual, Volume 1: Basic Architecture.†Ч Intel Corp., 1999.
+67. Intel Architecture Software DeveloperТs Manual, Volume 2: Instruction Set Refe≠rence.†Ч Intel Corp., 1999.
+68. Intel Architecture Software DeveloperТs Manual, Volume 3: System Program≠ming.†Ч Intel Corp., 1999.
+69. KBD42W11 Keyboard Controller.†Ч Standard Microsystems Corp.
+70. KBD43W13 Keyboard and PS/2 Mouse Controller.†Ч Standard Microsystems Corp.
+71. Keyboard Scan Code Specification. Ч Microsoft Corp., 2000.
+72. Larry Smith. Accessing high memory.†Ч ProgrammerТs Journal, May/June 1990.
+73. Lexmark Technical Reference. Ч Lexmark International, Inc., 1999.
+74. Long Filename Specification.†Ч Microsoft Corporation, 1992.
+75. Matrox MGA-G200 Specification.†Ч Matrox Graphics Inc., 1998.
+76. Matrox MGA-G400 Specification.†Ч Matrox Graphics Inc., 1999.
+77. Michael Abrash. Measuring Performance.†Ч ProgrammerТs Journal 7.4, 1989. 
+78. Michael Abrash. VGA Text Paging.†Ч ProgrammerТs Journal 6.5, 1988.
+79. MultiKey/42i DeveloperТs Technical Manual. Ч Phoenix Technologies Ltd., 1996.
+80. PC 2001 System Design Guide.†Ч Intel Corporation and Microsoft Corporation, 2000.
+81. PCI BIOS Specification. Revision 2.1. Ч PCI Special Interest Group, 1994.
+82. PCI Local Bus Specification. Revision 2.2. Ч PCI Special Interest Group, 1998.
+83. PCL 5 Color Technical Reference Manual. Ч Hewlett Packard, 1994.
+84. PCL 5 Printer Language Technical Reference Manual. Ч Hewlett Packard, 1992.
+85. PhoenixBIOS 4.0 UserТs Manual.†Ч Phoenix Technologies Ltd., 2000.
+86. Plug and Play Parallel Port Devices. Ч Microsoft Corp., 1993.
+87. Printer Job Language Technical Reference Manual. Ч Hewlett Packard, 1997.
+88. RTL8029AS Realtek PCI Full-Duplex Ethernet Controller with built-in SRAM. Ч Realtek Semiconductor Corp., 1997.
+89. The PCL ImplementorТs Guide. Version 6.0. Ч Hewlett Packard, 1995.
+90. Thomas Roden. Four Gigabytes in Real Mode.†Ч ProgrammerТs Journal 7.6, 1989.
+91. Universal Host Controller Interface (UCHI) Design Guide. Revision 1.1. Ч Intel Corp., 1996.
+92. Universal Serial Bus Device Class Definition for Human Interface Devices (HID). Ч USB Implementers Forum, 1999.
+93. Universal Serial Bus Device Class Definition for Printing Devices. Ч USB Implementers Forum, 1997.
+94. Universal Serial Bus Language Identifiers. Ч USB Implementers Forum, 2000.
+95. Universal Serial Bus Specification. Revision 1.1. Ч Compaq Computer Corp., Intel Corp., Microsoft Corp., NEC Corp., 1998.
+96. VESA BIOS EXTENSION Core Function Standard, Version 3.0.†Ч Video Electro≠nics Standards Association, 1998.
+97. VIA VT86C926 Amazon PCI Ethernet Controller Data Sheet. Ч VIA Technologies Inc., 1995.
+98. VT82C42 Keyboard Controller.†Ч VIA Technologies, Inc., 1995.
+99. Writing Drivers for the DP8390 NIC Family of Ethernet Controllers. Ч National Semiconductor Corp., 1993.
+
+јнгло€зычна€ документаци€ получена в основном из »нтернета с серверов фирм-изготовителей оборудовани€:
+Hewlett-Packard. Ч www.hp.com
+Holtek Semiconductor Inc. Ч www.holtek.com.tw
+Intel Corp. Ч developer.intel.com
+Matrox Graphics Inc. Ч www.matrox.com
+Microchip Technology Inc. Ч www.micrichip.com
+Microsoft Corp. Ч www.microsoft.com
+National Semiconductor Corp. Ч www.national.com
+PCI Special Interest Grope Ч www.pcisig.com
+Phoenix Technologies Ltd. Ч www.phoenix.com, www.ptltd.com
+Realtek Semiconductor Corp. Ч www.realtek.com.tw
+Seiko Epson Corp. Ч www.epson.com, www.epsondevelopers.com
+Standard Microsystems Corp. Ч www.smsc.com
+VIA Technologies, Inc. Ч www.via.com.tw, www.viatech.com
+Video Electronics Standards Association Ч www.vesa.org

@@ -1,0 +1,158 @@
+/**
+ * @target: os xworkspace
+ * @author: Krutko Vitaliy
+ * @aka: asmforce
+ * @e-mail: asmforce@ukr.net
+ * @copyright (C)
+**/
+
+#include "config.h"
+#include "io.h"
+#include "ram.h"
+
+// this is switched mode
+// see asmcode initialization
+#define VGA_TEXT_SCREEN_WIDTH 80
+#define VGA_TEXT_SCREEN_HEIGHT 50
+
+#define VGA_MOR_PORT 0x3CC
+
+#define VIDEO_INDEX_PORT 0x3D4
+#define VIDEO_DATA_PORT 0x3D5
+
+
+#define LIGHTPEN_OFFSET_HB 0x0A
+#define LIGHTPEN_OFFSET_LB 0x0B
+
+#define VIDEOPAGE_OFFSET_HB 0x0C
+#define VIDEOPAGE_OFFSET_LB 0x0D
+
+#define CARET_POS_HB 0x0E
+#define CARET_POS_LB 0x0F
+
+
+
+typedef struct
+{
+  u8 c;
+  u8 colors;
+} TextModePixel;
+
+static union
+{
+  TextModePixel *chars;
+  u32            asuint;
+} videomem;
+
+static u16 videoIoPort;
+static u32 videoLFB;
+static u16 caretOffset;
+static u16 frameArea;
+
+
+
+
+void setCaretPos( u16 x, u16 y )
+{
+  u16 offset = x * VGA_TEXT_SCREEN_WIDTH + y;
+
+  wrio8( CARET_POS_LB, VIDEO_INDEX_PORT );
+  wrio8( offset & 0xFF, VIDEO_DATA_PORT );
+  wrio8( CARET_POS_HB, VIDEO_INDEX_PORT );
+  wrio8( offset >> 8, VIDEO_DATA_PORT );
+};
+
+
+void setVideopageOffset( u16 offset )
+{
+  wrio8( VIDEOPAGE_OFFSET_LB, VIDEO_INDEX_PORT );
+  wrio8( offset & 0xFF, VIDEO_DATA_PORT );
+  wrio8( VIDEOPAGE_OFFSET_HB, VIDEO_INDEX_PORT );
+  wrio8( offset >> 8, VIDEO_DATA_PORT );
+};
+
+
+void setLightPenPos( u16 x, u16 y )
+{
+  u16 offset = x * VGA_TEXT_SCREEN_WIDTH + y;
+
+  wrio8( LIGHTPEN_OFFSET_LB, VIDEO_INDEX_PORT );
+  wrio8( offset & 0xFF, VIDEO_DATA_PORT );
+  wrio8( LIGHTPEN_OFFSET_HB, VIDEO_INDEX_PORT );
+  wrio8( offset >> 8, VIDEO_DATA_PORT );
+};
+
+void setTtyXY( u16 x, u16 y )
+{
+  caretOffset = x + y * VGA_TEXT_SCREEN_WIDTH;
+};
+
+
+
+
+void inizTty()
+{
+  if( rdio8(VGA_MOR_PORT) & 0x01 )
+  {
+    videoIoPort = 0x3D4;
+    videoLFB = 0xB8000;
+  } else {
+    videoIoPort = 0x3B4;
+    videoLFB = 0xB0000;
+  };
+
+  videomem.asuint = videoLFB;
+  caretOffset = 0;
+  frameArea = VGA_TEXT_SCREEN_WIDTH * VGA_TEXT_SCREEN_HEIGHT;
+};
+
+
+
+
+
+
+
+
+void printc( tchar c )
+{
+  switch( c )
+  {
+  case '\n':
+    caretOffset -= caretOffset % VGA_TEXT_SCREEN_WIDTH;
+    caretOffset += VGA_TEXT_SCREEN_WIDTH;
+    break;
+
+  case '\t':
+    videomem.chars[caretOffset++].c = ' ';
+    videomem.chars[caretOffset++].c = ' ';
+    videomem.chars[caretOffset++].c = ' ';
+    break;
+
+  case '\b':
+    videomem.chars[--caretOffset].c = ' ';
+    break;
+
+  case '\r':
+    caretOffset -= caretOffset % VGA_TEXT_SCREEN_WIDTH;
+    break;
+
+  default:
+    videomem.chars[caretOffset++].c = c;
+  };
+
+  if( caretOffset > frameArea )
+  {
+    videomem.chars += VGA_TEXT_SCREEN_WIDTH;
+    caretOffset -= VGA_TEXT_SCREEN_WIDTH;
+    setVideopageOffset( caretOffset );
+  };
+};
+
+
+
+
+void printcs( const tchar *cs )
+{
+  while( *cs )
+    printc( *cs++ );
+};
